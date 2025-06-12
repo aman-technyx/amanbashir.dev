@@ -3,95 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aman Bashir – Software Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f8fafc;
-      color: #1f2937;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #0f172a;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    h1, h2 {
-      color: #0f172a;
-    }
-    .skills, .experience, .contact {
-      margin-top: 2rem;
-    }
-    .highlight {
-      color: #3b82f6;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #6b7280;
-    }
-  </style>
+  <title>Aman Bashir — Software Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
 </head>
 <body>
-
-  <header>
-    <h1>Aman Bashir</h1>
-    <p>Software Engineer · React | Node.js | .NET | Cloud</p>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <h1 class="logo">Aman Bashir</h1>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I'm a software engineer based in <strong>Karachi, Pakistan</strong> with 4–5 years of experience building scalable web and mobile applications. I specialize in full-stack development using <span class="highlight">TypeScript, React, Node.js, .NET</span>, and cloud platforms like <span class="highlight">AWS</span> and <span class="highlight">Azure</span>.
-    </p>
-    <p>
-      I currently work at <strong>Technyx Systems</strong> and collaborate with international clients such as <strong>Eike Consultancy</strong> and <strong>DCT Dubai</strong> on outsourced development projects.
-    </p>
+  <section class="hero">
+    <div class="container">
+      <h2 class="hero-title">Hi, I'm Aman —</h2>
+      <p class="hero-subtitle">
+        A full-stack software engineer building scalable web and mobile apps with React, Node.js, .NET & more.
+      </p>
+      <a href="#contact" class="btn-primary">Let’s Connect</a>
+    </div>
   </section>
 
-  <section class="skills">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>Frontend: React, Next.js, React Native, Material UI, SCSS</li>
-      <li>Backend: Node.js, Express, .NET (MVC & Core), Java (Spring Boot)</li>
-      <li>Cloud & DevOps: AWS, Azure, CI/CD, Docker</li>
-      <li>Tools: Git, Postman, Jira, Figma</li>
-    </ul>
+  <section id="about" class="section">
+    <div class="container">
+      <h3 class="section-title">About Me</h3>
+      <p>
+        I’m based in Karachi, Pakistan with 4+ years of experience crafting web and mobile solutions. I've worked with Technyx Systems, DCT Dubai, and Eike Consultancy, and love turning complex problems into elegant code.
+      </p>
+    </div>
   </section>
 
-  <section class="experience">
-    <h2>Professional Experience</h2>
-    <ul>
-      <li><strong>Technyx Systems</strong> – Software Engineer (Present)</li>
-      <li><strong>Eike Consultancy</strong> – Outsourced Development Partner</li>
-      <li><strong>DCT Dubai</strong> – Freelance/Contract Developer</li>
-    </ul>
+  <section id="projects" class="section gray-bg">
+    <div class="container">
+      <h3 class="section-title">Projects</h3>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h4>PractiCal (Fleet Filtering UI)</h4>
+          <p>A dynamic dashboard built with React and Next.js to filter fleets by country, rig design, and type using live data logic.</p>
+        </div>
+        <div class="project-card">
+          <h4>Mobile App with React Native</h4>
+          <p>Cross-platform app built with React Native and Redux for tracking and managing logistics in real time.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="education">
-    <h2>Education</h2>
-    <p><strong>Bachelor's in Computer Engineering</strong><br>Sir Syed University of Engineering and Technology</p>
+  <section id="contact" class="section">
+    <div class="container text-center">
+      <h3 class="section-title">Get in Touch</h3>
+      <p>Let's collaborate! Feel free to reach out via email or social platforms below.</p>
+      <a href="mailto:amanbashir.dev@gmail.com" class="btn-primary">Email Me</a>
+      <div class="social-links">
+        <a href="https://github.com/amanbashirdev" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/amanbashirdev" target="_blank">LinkedIn</a>
+      </div>
+    </div>
   </section>
 
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>Email: amanbashir.dev@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/amanbashirdev" target="_blank">linkedin.com/in/amanbashirdev</a></p>
-    <p>GitHub: <a href="https://github.com/amanbashirdev" target="_blank">github.com/amanbashirdev</a></p>
-  </section>
-
-  <footer>
-    &copy; 2025 Aman Bashir. All rights reserved.
+  <footer class="footer">
+    <p>© 2025 Aman Bashir. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
