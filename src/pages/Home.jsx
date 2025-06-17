@@ -10,7 +10,7 @@ const Home = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h1 className="hero-title">Hi, I'm Aman —</h1>
+                    <h1 className="hero-title">Hi, I'm Aman Bashir —</h1>
                     <p className="hero-subtitle">
                         A full-stack software engineer building scalable web and mobile apps with React, Node.js, .NET & more.
                     </p>
