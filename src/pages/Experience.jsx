@@ -1,6 +1,10 @@
-import { motion } from 'framer-motion'
+import { useRef, useEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const Experience = () => {
+    const experienceRef = useRef(null)
     const experiences = [
         {
             company: 'Technyx Systems',
@@ -37,21 +41,32 @@ const Experience = () => {
         }
     ]
 
-    const fadeInUp = {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.5 }
-    }
+    useEffect(() => {
+        const el = experienceRef.current
+        gsap.fromTo(
+            el,
+            { opacity: 0, rotateY: 45 },
+            {
+                opacity: 1,
+                rotateY: 0,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                },
+            }
+        )
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
+    }, [])
 
     return (
         <section id="experience" className="section">
             <div className="container">
-                <motion.div
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true }}
-                    variants={fadeInUp}
-                >
+                <div ref={experienceRef}>
                     <h2 className="section-title">Work Experience</h2>
                     <div className="experience-timeline">
                         {experiences.map((exp, index) => (
@@ -69,7 +84,7 @@ const Experience = () => {
                             </div>
                         ))}
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     )

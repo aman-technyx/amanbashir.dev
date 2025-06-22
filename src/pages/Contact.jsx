@@ -1,12 +1,11 @@
-import { motion } from 'framer-motion'
+import { useRef, useEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe } from 'react-icons/fa'
 
 const Contact = () => {
-    const fadeInUp = {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.5 }
-    }
+    const contactRef = useRef(null)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -41,15 +40,32 @@ const Contact = () => {
         }
     ]
 
+    useEffect(() => {
+        const el = contactRef.current
+        gsap.fromTo(
+            el,
+            { opacity: 0, y: 60 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                },
+            }
+        )
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
+    }, [])
+
     return (
         <section id="contact" className="section">
             <div className="container">
-                <motion.div
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true }}
-                    variants={fadeInUp}
-                >
+                <div ref={contactRef}>
                     <h2 className="section-title">Get In Touch</h2>
                     <div className="contact-content">
                         <div className="contact-info">
@@ -119,7 +135,7 @@ const Contact = () => {
                             </button>
                         </form>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     )

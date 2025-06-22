@@ -1,8 +1,13 @@
-import { motion } from 'framer-motion'
+import { useRef, useEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProjectCard from '../components/ProjectCard'
 import PlaceholderImage from '../components/PlaceholderImage'
 
+gsap.registerPlugin(ScrollTrigger)
+
 const Projects = () => {
+    const projectsRef = useRef(null)
     const projects = [
         {
             title: 'PractiCal (Fleet Filtering UI)',
@@ -30,28 +35,39 @@ const Projects = () => {
         }
     ]
 
-    const fadeInUp = {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.5 }
-    }
+    useEffect(() => {
+        const el = projectsRef.current
+        gsap.fromTo(
+            el,
+            { opacity: 0, y: 100 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                },
+            }
+        )
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
+    }, [])
 
     return (
         <section id="projects" className="section gray-bg">
             <div className="container">
-                <motion.div
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true }}
-                    variants={fadeInUp}
-                >
+                <div ref={projectsRef}>
                     <h2 className="section-title">Featured Projects</h2>
                     <div className="projects-grid">
                         {projects.map((project, index) => (
                             <ProjectCard key={index} {...project} />
                         ))}
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     )

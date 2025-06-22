@@ -1,7 +1,11 @@
-import { motion } from 'framer-motion'
+import { useRef, useEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 import SkillCard from '../components/SkillCard'
 
 const Skills = () => {
+    const skillsRef = useRef(null)
     const skills = [
         {
             category: 'Frontend',
@@ -35,28 +39,58 @@ const Skills = () => {
         }
     ]
 
-    const fadeInUp = {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.5 }
-    }
+    useEffect(() => {
+        const el = skillsRef.current
+        gsap.fromTo(
+            el,
+            { opacity: 0, scale: 0.8 },
+            {
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                },
+            }
+        )
+        // Animate each SkillCard with a stagger
+        gsap.utils.toArray('.skills-grid .skill-card').forEach((card, i) => {
+            gsap.fromTo(
+                card,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    delay: 0.2 + i * 0.1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 90%',
+                        toggleActions: 'play none none reverse',
+                    },
+                }
+            )
+        })
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
+    }, [])
 
     return (
         <section id="skills" className="section gray-bg">
             <div className="container">
-                <motion.div
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true }}
-                    variants={fadeInUp}
-                >
+                <div ref={skillsRef}>
                     <h2 className="section-title">Skills & Expertise</h2>
                     <div className="skills-grid">
                         {skills.map((skillGroup, index) => (
                             <SkillCard key={index} {...skillGroup} />
                         ))}
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     )

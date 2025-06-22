@@ -1,15 +1,37 @@
-import { motion } from 'framer-motion'
+import { useRef, useEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-scroll'
 
+gsap.registerPlugin(ScrollTrigger)
+
 const Home = () => {
+    const heroRef = useRef(null)
+    useEffect(() => {
+        const el = heroRef.current
+        gsap.fromTo(
+            el,
+            { opacity: 0, scale: 0.8 },
+            {
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                },
+            }
+        )
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
+    }, [])
     return (
         <section id="home" className="hero">
             <div className="container">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
+                <div ref={heroRef}>
                     <h1 className="hero-title">Hi, I'm Aman Bashir —</h1>
                     <p className="hero-subtitle">
                         A full-stack software engineer building scalable web and mobile apps with React, Node.js, .NET & more.
@@ -22,7 +44,7 @@ const Home = () => {
                             View My Work
                         </Link>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     )
