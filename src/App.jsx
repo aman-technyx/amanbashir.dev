@@ -10,10 +10,13 @@ import Contact from './pages/Contact'
 import Services from './pages/Services'
 import Testimonials from './pages/Testimonials'
 import Achievements from './pages/Achievements'
+import FeatureProject from './components/FeatureProject'
 import './styles/main.scss'
 import signature from './assets/signature.jpg'
+import useFluidCursor from './hooks/useFluidCursor'
 
 function App() {
+  useFluidCursor();
   const [theme, setTheme] = useState('dark')
   const [cursor, setCursor] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 })
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
@@ -88,7 +91,7 @@ function App() {
   }, [])
 
   return (
-    <div className={`app ${theme}-theme`} style={{ position: 'relative', minHeight: '100vh' }}>
+    <div className={`app ${theme === 'dark' ? 'dark' : ''} ${theme}-theme`} style={{ position: 'relative', minHeight: '100vh' }}>
       <Header />
       <button
         onClick={toggleTheme}
@@ -145,10 +148,12 @@ function App() {
           }}
         />
       </div>
+      {/* Fluid Cursor Canvas Overlay */}
+      <canvas id="fluid" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', pointerEvents: 'none', zIndex: 9999 }} />
       <main>
         <Home theme={theme} />
         <About />
-        <Projects />
+        <FeatureProject />
         <Experience />
         <Skills />
         <Services />
