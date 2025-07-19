@@ -9,6 +9,7 @@ import Skills from './pages/Skills'
 import Contact from './pages/Contact'
 import FeatureProject from './components/FeatureProject'
 import LogoCarousel from './components/LogoCarousel'
+import FloatingParticles from './components/FloatingParticles'
 import './styles/main.scss'
 import signature from './assets/signature.jpg'
 import useFluidCursor from './hooks/useFluidCursor'
@@ -118,6 +119,8 @@ function App() {
       </div>
       {/* Fluid Cursor Canvas Overlay */}
       <canvas id="fluid" className="canvas-overlay canvas-fluid" />
+      {/* Floating Particles Background */}
+      <FloatingParticles />
       <main>
         <Home theme={theme} />
         <About />

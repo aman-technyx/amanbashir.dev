@@ -27,7 +27,7 @@ const Home = ({ theme }) => {
         )
     }, [])
     return (
-        <section id="home" className="hero">
+        <section id="home" className="hero bg-pattern noise-texture">
             <div className="container hero-container">
                 <div ref={heroRef} className="hero-content">
                     <div className="hero-profile">
