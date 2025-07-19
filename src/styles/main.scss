@@ -92,6 +92,32 @@ $font-family: 'Inter', sans-serif;
     --border-white: #ffffff;
     --background-light: #eeeeee;
 
+    /* Text and UI Colors */
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --heading-color: #111827;
+    --paragraph-color: #374151;
+    --link-color: #{$primary-color};
+    --link-hover-color: #{$secondary-color};
+
+    /* Background Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-tertiary: #f3f4f6;
+    --bg-card: #ffffff;
+    --bg-overlay: rgba(0, 0, 0, 0.1);
+
+    /* Border Colors */
+    --border-primary: #e5e7eb;
+    --border-secondary: #d1d5db;
+    --border-focus: #{$primary-color};
+
+    /* Shadow Colors */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --shadow-dark: rgba(0, 0, 0, 0.25);
+
     /* Gradient variables */
     --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -176,6 +202,32 @@ $font-family: 'Inter', sans-serif;
     --purple-twitch: #a855f7;
     --border-white: #374151;
     --background-light: #374151;
+
+    /* Text and UI Colors (Dark Mode) */
+    --text-primary: #f3f4f6;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --heading-color: #ffffff;
+    --paragraph-color: #e5e7eb;
+    --link-color: #{$primary-color};
+    --link-hover-color: #{$secondary-color};
+
+    /* Background Colors (Dark Mode) */
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --bg-tertiary: #374151;
+    --bg-card: #1f2937;
+    --bg-overlay: rgba(0, 0, 0, 0.3);
+
+    /* Border Colors (Dark Mode) */
+    --border-primary: #374151;
+    --border-secondary: #4b5563;
+    --border-focus: #{$primary-color};
+
+    /* Shadow Colors (Dark Mode) */
+    --shadow-light: rgba(0, 0, 0, 0.25);
+    --shadow-medium: rgba(0, 0, 0, 0.35);
+    --shadow-dark: rgba(0, 0, 0, 0.5);
 
     /* Gradient variables (Dark Mode) */
     --gradient-1: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
@@ -409,7 +461,7 @@ html {
 
 body {
     font-family: $font-family;
-    color: $text-color;
+    color: var(--text-primary);
     line-height: 1.6;
 }
 
@@ -432,8 +484,8 @@ body {
     padding: 1rem 0;
 
     &.scrolled {
-        background-color: $background-color;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: var(--bg-primary);
+        box-shadow: 0 2px 10px var(--shadow-light);
         padding: 0.5rem 0;
     }
 
@@ -446,7 +498,7 @@ body {
     .logo {
         font-size: 1.5rem;
         font-weight: 700;
-        color: $text-color;
+        color: var(--text-primary);
         text-decoration: none;
         cursor: pointer;
     }
@@ -457,14 +509,14 @@ body {
         align-items: center;
 
         .nav-link {
-            color: $text-color;
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
             cursor: pointer;
             transition: color 0.3s ease;
 
             &:hover {
-                color: $primary-color;
+                color: var(--link-hover-color);
             }
         }
     }
@@ -482,7 +534,7 @@ body {
             display: block;
             width: 25px;
             height: 2px;
-            background-color: $text-color;
+            background-color: var(--text-primary);
             transition: all 0.3s ease;
         }
 
@@ -509,7 +561,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background-color: $background-color;
+    background-color: var(--bg-primary);
     padding-top: 80px;
 
     .hero-title {
@@ -520,7 +572,7 @@ body {
 
     .hero-subtitle {
         font-size: 1.5rem;
-        color: $light-text;
+        color: var(--text-secondary);
         margin-bottom: 2rem;
         max-width: 600px;
     }
@@ -542,7 +594,7 @@ body {
         p {
             margin-bottom: 1.5rem;
             font-size: 1.125rem;
-            color: $light-text;
+            color: var(--text-secondary);
 
             &:last-child {
                 margin-bottom: 0;
@@ -559,12 +611,12 @@ body {
         .stat-item {
             h3 {
                 font-size: 2.5rem;
-                color: $primary-color;
+                color: var(--blue-primary);
                 margin-bottom: 0.5rem;
             }
 
             p {
-                color: $light-text;
+                color: var(--text-secondary);
                 font-size: 0.875rem;
             }
         }
@@ -573,7 +625,7 @@ body {
 
 // Projects Section
 .gray-bg {
-    background-color: $section-bg;
+    background-color: var(--bg-tertiary);
 }
 
 .projects-grid {
@@ -583,10 +635,10 @@ body {
 }
 
 .project-card {
-    background-color: $background-color;
+    background-color: var(--bg-card);
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-light);
     transition: transform 0.3s ease;
 
     .project-image {
@@ -611,7 +663,7 @@ body {
         }
 
         .project-description {
-            color: $light-text;
+            color: var(--text-secondary);
             margin-bottom: 1rem;
             font-size: 0.875rem;
         }
@@ -623,8 +675,8 @@ body {
             margin-bottom: 1rem;
 
             .tech-tag {
-                background-color: $section-bg;
-                color: $primary-color;
+                background-color: var(--bg-tertiary);
+                color: var(--blue-primary);
                 padding: 0.25rem 0.75rem;
                 border-radius: 1rem;
                 font-size: 0.75rem;
@@ -637,12 +689,12 @@ body {
             gap: 1rem;
 
             .project-link {
-                color: $text-color;
+                color: var(--text-primary);
                 font-size: 1.25rem;
                 transition: color 0.3s ease;
 
                 &:hover {
-                    color: $primary-color;
+                    color: var(--link-hover-color);
                 }
             }
         }
@@ -664,9 +716,9 @@ body {
 .experience-item {
     position: relative;
     padding: 2rem;
-    background-color: $background-color;
+    background-color: var(--bg-card);
     border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-light);
     margin-bottom: 2rem;
 
     &:last-child {
@@ -685,13 +737,13 @@ body {
         }
 
         .period {
-            color: $primary-color;
+            color: var(--blue-primary);
             font-weight: 500;
         }
     }
 
     .position {
-        color: $light-text;
+        color: var(--text-secondary);
         font-size: 1.125rem;
         margin-bottom: 1rem;
     }
@@ -703,11 +755,11 @@ body {
         li {
             position: relative;
             margin-bottom: 0.5rem;
-            color: $light-text;
+            color: var(--text-secondary);
 
             &:before {
                 content: "•";
-                color: $primary-color;
+                color: var(--blue-primary);
                 position: absolute;
                 left: -1.5rem;
             }
@@ -727,15 +779,15 @@ body {
 }
 
 .skill-card {
-    background-color: $background-color;
+    background-color: var(--bg-card);
     border-radius: 0.5rem;
     padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-light);
 
     .skill-category {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
-        color: $primary-color;
+        color: var(--blue-primary);
     }
 
     .skill-items {
@@ -755,19 +807,19 @@ body {
             }
 
             .skill-level {
-                color: $light-text;
+                color: var(--text-secondary);
             }
         }
 
         .skill-bar {
             height: 8px;
-            background-color: $section-bg;
+            background-color: var(--bg-tertiary);
             border-radius: 4px;
             overflow: hidden;
 
             .skill-progress {
                 height: 100%;
-                background-color: $primary-color;
+                background-color: var(--blue-primary);
                 border-radius: 4px;
             }
         }
@@ -776,7 +828,7 @@ body {
 
 // Footer
 .footer {
-    background-color: $section-bg;
+    background-color: var(--bg-tertiary);
     padding: 3rem 0;
     margin-top: 5rem;
 
@@ -792,18 +844,18 @@ body {
         gap: 1.5rem;
 
         a {
-            color: $text-color;
+            color: var(--text-primary);
             font-size: 1.5rem;
             transition: color 0.3s ease;
 
             &:hover {
-                color: $primary-color;
+                color: var(--link-hover-color);
             }
         }
     }
 
     .copyright {
-        color: $light-text;
+        color: var(--text-secondary);
         font-size: 0.875rem;
     }
 }
@@ -831,20 +883,20 @@ h6 {
     cursor: pointer;
 
     &-primary {
-        background-color: $primary-color;
+        background-color: var(--blue-primary);
         color: white;
 
         &:hover {
-            background-color: $secondary-color;
+            background-color: var(--blue-secondary);
         }
     }
 
     &-outline {
-        border: 2px solid $primary-color;
-        color: $primary-color;
+        border: 2px solid var(--blue-primary);
+        color: var(--blue-primary);
 
         &:hover {
-            background-color: $primary-color;
+            background-color: var(--blue-primary);
             color: white;
         }
     }
@@ -920,7 +972,7 @@ h6 {
     .contact-icon {
         width: 40px;
         height: 40px;
-        background-color: $primary-color;
+        background-color: var(--blue-primary);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -936,7 +988,7 @@ h6 {
         }
 
         p {
-            color: $light-text;
+            color: var(--text-secondary);
             margin: 0;
             font-size: 0.875rem;
         }
@@ -944,10 +996,10 @@ h6 {
 }
 
 .contact-form {
-    background-color: $background-color;
+    background-color: var(--bg-card);
     padding: 2rem;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-light);
 
     .form-group {
         margin-bottom: 1.5rem;
@@ -962,7 +1014,7 @@ h6 {
         textarea {
             width: 100%;
             padding: 0.75rem;
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--border-primary);
             border-radius: 0.375rem;
             font-family: inherit;
             font-size: 1rem;
@@ -970,7 +1022,7 @@ h6 {
 
             &:focus {
                 outline: none;
-                border-color: $primary-color;
+                border-color: var(--border-focus);
             }
         }
 
@@ -1081,14 +1133,14 @@ h6 {
 }
 
 .app.dark-theme {
-    background: #181a1b;
-    color: #f3f4f6;
+    background: var(--bg-primary);
+    color: var(--text-primary);
 }
 
 .app.dark-theme .section,
 .app.dark-theme .container {
     background: transparent;
-    color: #f3f4f6;
+    color: var(--text-primary);
 }
 
 .app.dark-theme .btn-primary {
@@ -1109,34 +1161,34 @@ h6 {
 
 .app.dark-theme .hero-title,
 .app.dark-theme .section-title {
-    color: #fff;
+    color: var(--heading-color);
 }
 
 .app.dark-theme .footer {
-    background: #222;
-    color: #aaa;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
 }
 
 .app.dark-theme .copyright {
-    color: #888;
+    color: var(--text-muted);
 }
 
 // Expanded dark theme support
 .app.dark-theme .header {
-    background-color: #181a1b;
+    background-color: var(--bg-primary);
 }
 
 .app.dark-theme .header.scrolled {
-    background-color: #23272a;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background-color: var(--bg-secondary);
+    box-shadow: 0 2px 10px var(--shadow-medium);
 }
 
 .app.dark-theme .logo {
-    color: #f3f4f6;
+    color: var(--text-primary);
 }
 
 .app.dark-theme .nav-link {
-    color: #f3f4f6;
+    color: var(--text-primary);
 }
 
 .app.dark-theme .nav-link:hover {
@@ -1144,11 +1196,11 @@ h6 {
 }
 
 .app.dark-theme .mobile-menu-btn span {
-    background-color: #f3f4f6;
+    background-color: var(--text-primary);
 }
 
 .app.dark-theme .hero {
-    background-color: #181a1b;
+    background-color: var(--bg-primary);
 }
 
 .app.dark-theme .about-content {
@@ -1156,7 +1208,7 @@ h6 {
 }
 
 .app.dark-theme .about-text p {
-    color: #b0b3b8;
+    color: var(--text-secondary);
 }
 
 .app.dark-theme .about-stats .stat-item h3 {
@@ -1164,41 +1216,41 @@ h6 {
 }
 
 .app.dark-theme .about-stats .stat-item p {
-    color: #b0b3b8;
+    color: var(--text-secondary);
 }
 
 .app.dark-theme .project-card {
-    background-color: #23272a;
-    color: #f3f4f6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: 0 4px 12px var(--shadow-dark);
 }
 
 .app.dark-theme .project-card .project-description {
-    color: #b0b3b8;
+    color: var(--text-secondary);
 }
 
 .app.dark-theme .project-card .tech-tag {
-    background-color: #23272a;
+    background-color: var(--bg-tertiary);
     color: var(--blue-secondary);
 }
 
 .app.dark-theme .experience-item {
-    background-color: #23272a;
-    color: #f3f4f6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: 0 4px 12px var(--shadow-dark);
 }
 
 .app.dark-theme .experience-item .position {
-    color: #b0b3b8;
+    color: var(--text-secondary);
 }
 
 .app.dark-theme .experience-item .description-list li {
-    color: #b0b3b8;
+    color: var(--text-secondary);
 }
 
 .app.dark-theme .skills-grid .skill-card {
-    background-color: #23272a;
-    color: #f3f4f6;
+    background-color: var(--bg-card);
+    color: var(--text-primary);
 }
 
 .app.dark-theme .skill-card .skill-category {
@@ -1206,11 +1258,11 @@ h6 {
 }
 
 .app.dark-theme .skill-card .skill-item .skill-level {
-    color: #b0b3b8;
+    color: var(--text-secondary);
 }
 
 .app.dark-theme .skill-card .skill-bar {
-    background-color: #23272a;
+    background-color: var(--bg-tertiary);
 }
 
 .app.dark-theme .skill-card .skill-progress {
@@ -1218,39 +1270,39 @@ h6 {
 }
 
 .app.dark-theme .testimonial-card {
-    background-color: #23272a;
-    color: #f3f4f6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: 0 4px 12px var(--shadow-dark);
 }
 
 .app.dark-theme .testimonial-feedback {
-    color: #b0b3b8;
+    color: var(--text-secondary);
 }
 
 .app.dark-theme .testimonial-info .testimonial-role {
-    color: #b0b3b8;
+    color: var(--text-secondary);
 }
 
 .app.dark-theme .section {
     background: transparent;
-    color: #f3f4f6;
+    color: var(--text-primary);
 }
 
 .app.dark-theme .contact-form {
-    background-color: #23272a;
-    color: #f3f4f6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: 0 4px 12px var(--shadow-dark);
 }
 
 .app.dark-theme .contact-form label {
-    color: #f3f4f6;
+    color: var(--text-primary);
 }
 
 .app.dark-theme .contact-form input,
 .app.dark-theme .contact-form textarea {
-    background: #181a1b;
-    color: #f3f4f6;
-    border: 1px solid #333;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
 }
 
 .app.dark-theme .contact-form input:focus,
@@ -1259,21 +1311,21 @@ h6 {
 }
 
 .app.dark-theme .contact-item {
-    color: #f3f4f6;
+    color: var(--text-primary);
 }
 
 .app.dark-theme .contact-item .contact-icon {
     background-color: var(--blue-secondary);
-    color: #181a1b;
+    color: var(--bg-primary);
 }
 
 .app.dark-theme .footer {
-    background-color: #23272a;
-    color: #b0b3b8;
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
 }
 
 .app.dark-theme .social-links a {
-    color: #f3f4f6;
+    color: var(--text-primary);
 }
 
 .app.dark-theme .social-links a:hover {
@@ -1285,7 +1337,7 @@ h6 {
 .gradient-border-content {
     position: relative;
     z-index: 1;
-    background: #111827;
+    background: var(--bg-primary);
     border-radius: calc(var(--border-radius, 0.75rem) - 4px);
     padding: 1.5rem;
     height: 100%;
@@ -1310,8 +1362,8 @@ h6 {
     position: relative;
     border-radius: 0.5rem;
     padding: 0;
-    background-color: $background-color;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-card);
+    box-shadow: 0 4px 6px var(--shadow-light);
     overflow: visible;
 }
 
