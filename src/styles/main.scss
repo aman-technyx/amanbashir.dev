@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
 // SCSS Variables (move these to the top!)
 $primary-color: #00ff41;
 $secondary-color: #00cc33;
@@ -5,7 +7,7 @@ $text-color: #1f2937;
 $light-text: #6b7280;
 $background-color: #ffffff;
 $section-bg: #f3f4f6;
-$font-family: 'Inter', sans-serif;
+$font-family: 'Special Elite', cursive, sans-serif;
 
 // Tailwind CSS Directives
 @tailwind base;
