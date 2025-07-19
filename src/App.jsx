@@ -11,6 +11,7 @@ import Services from './pages/Services'
 import Testimonials from './pages/Testimonials'
 import Achievements from './pages/Achievements'
 import FeatureProject from './components/FeatureProject'
+import LogoCarousel from './components/LogoCarousel'
 import './styles/main.scss'
 import signature from './assets/signature.jpg'
 import useFluidCursor from './hooks/useFluidCursor'
@@ -156,6 +157,7 @@ function App() {
         <FeatureProject />
         <Experience />
         <Skills />
+        <LogoCarousel />
         <Services />
         <Testimonials />
         <Achievements />

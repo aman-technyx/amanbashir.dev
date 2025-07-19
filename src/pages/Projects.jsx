@@ -63,9 +63,9 @@ const Projects = () => {
                 <div ref={projectsRef}>
                     <h2 className="section-title">Featured Projects</h2>
                     <div className="projects-grid">
-                        {projects.map((project, index) => (
+                        {/* {projects.map((project, index) => (
                             <ProjectCard key={index} {...project} />
-                        ))}
+                        ))} */}
                     </div>
                 </div>
             </div>

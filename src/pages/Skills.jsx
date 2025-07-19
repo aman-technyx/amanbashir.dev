@@ -85,11 +85,11 @@ const Skills = () => {
             <div className="container">
                 <div ref={skillsRef}>
                     <h2 className="section-title">Skills & Expertise</h2>
-                    <div className="skills-grid">
+                    {/* <div className="skills-grid">
                         {skills.map((skillGroup, index) => (
                             <SkillCard key={index} {...skillGroup} />
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

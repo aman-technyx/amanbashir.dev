@@ -3,6 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
+// CSS Properties for animated borders
+@property --border-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: '<angle>';
+}
+
 // UI-Layouts CSS Variables
 :root {
     --background: 0 0% 100%;
@@ -1017,4 +1024,49 @@ h6 {
 
 .app.dark-theme .social-links a:hover {
     color: #60a5fa;
+}
+
+// Gradient Border Component Styles - REMOVED DUPLICATE
+
+.gradient-border-content {
+    position: relative;
+    z-index: 1;
+    background: #111827;
+    border-radius: calc(var(--border-radius, 0.75rem) - 4px);
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes rotate-gradient {
+    to {
+        --border-angle: 360deg;
+    }
+}
+
+// Dark theme support for gradient border
+.app.dark-theme .gradient-border-content {
+    background: hsl(var(--background));
+}
+
+// Enhanced Gradient Border Animation (Traveling Highlight)
+.gradient-border-container {
+    position: relative;
+    border-radius: 0.5rem;
+    padding: 0;
+    background-color: $background-color;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+}
+
+.gradient-border-container::before {
+    content: none;
+}
+
+@keyframes border-conic-rotate {
+    to {
+        --border-angle: 360deg;
+    }
 }

@@ -117,7 +117,7 @@ const article = {
 
 function Gallery({ items, setIndex, index }) {
     return (
-        <div className='w-full gap-16 flex pb-20 pt-10 overflow-hidden justify-center'>
+        <div className='w-full gap-24 flex pb-20 pt-10 overflow-hidden justify-center'>
             {items.map((item, i) => {
                 const isActive = index === i;
                 return (
@@ -130,7 +130,8 @@ function Gallery({ items, setIndex, index }) {
                             transition: 'width 500ms ease-in-out',
                             width: isActive ? '500px' : '60px',
                             position: 'relative',
-                            overflow: 'hidden'
+                            overflow: 'hidden',
+                            marginRight: '0.1rem'
                         }}
                         className={cn(
                             'md:h-[700px]',
@@ -313,11 +314,11 @@ const FeatureProject = () => {
                         A showcase of my most impactful projects from 2018-2025.
                     </p>
                 </motion.div>
+            </div>
 
-                {/* Hover Accordion Gallery */}
-                <div className="relative overflow-x-auto w-full">
-                    <Gallery items={items} index={index} setIndex={setIndex} />
-                </div>
+            {/* Hover Accordion Gallery - Full Width */}
+            <div className="relative overflow-x-auto w-full">
+                <Gallery items={items} index={index} setIndex={setIndex} />
             </div>
         </section>
     );
