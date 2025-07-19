@@ -1,22 +1,15 @@
 import React from 'react'
 
 const PlaceholderImage = ({ initials = 'AB', size = 300, className = '' }) => {
-    const style = {
-        width: size,
-        height: size,
-        backgroundColor: '#2563eb',
-        color: 'white',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: `${size * 0.4}px`,
-        fontWeight: 'bold',
-        borderRadius: '8px',
-        fontFamily: 'Inter, sans-serif'
-    }
-
     return (
-        <div style={style} className={className}>
+        <div
+            className={`bg-blue-primary text-white flex items-center justify-center font-bold rounded-lg font-inter ${className}`}
+            style={{
+                width: size,
+                height: size,
+                fontSize: `${size * 0.4}px`
+            }}
+        >
             {initials}
         </div>
     )

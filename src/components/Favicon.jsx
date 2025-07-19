@@ -8,7 +8,7 @@ const Favicon = () => {
             alt="Signature Favicon"
             width={32}
             height={32}
-            style={{ borderRadius: 8 }}
+            className="rounded-lg"
         />
     )
 }

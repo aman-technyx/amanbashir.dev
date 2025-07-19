@@ -27,23 +27,14 @@ const Home = ({ theme }) => {
         )
     }, [])
     return (
-        <section id="home" className="hero" style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
-            <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-                <div ref={heroRef} style={{ display: 'flex', alignItems: 'center', gap: '2rem', position: 'relative' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <section id="home" className="hero">
+            <div className="container hero-container">
+                <div ref={heroRef} className="hero-content">
+                    <div className="hero-profile">
                         <img
                             src={profileImg}
                             alt="Aman Bashir profile"
-                            style={{
-                                width: 160,
-                                height: 160,
-                                objectFit: 'cover',
-                                borderRadius: '50%',
-                                boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
-                                marginBottom: 24,
-                                border: '4px solid #fff',
-                                background: '#eee',
-                            }}
+                            className="hero-image"
                         />
                         <h1 className="hero-title">Hi, I'm Aman Bashir —</h1>
                         <p className="hero-subtitle">

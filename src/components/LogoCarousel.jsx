@@ -192,7 +192,6 @@ const LogoCarousel = () => {
                         className="flex animate-scroll"
                         style={{
                             width: 'max-content',
-                            animation: 'scroll 100s linear infinite',
                             gap: '40px'
                         }}
                     >

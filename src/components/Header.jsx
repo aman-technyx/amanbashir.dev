@@ -27,8 +27,8 @@ const Header = () => {
     return (
         <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
             <div className="container header-inner">
-                <Link to="home" className="logo" smooth={true} duration={500} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <span style={{ fontWeight: 700, fontSize: '1.5rem', color: 'inherit', letterSpacing: 1 }}>Aman Bashir</span>
+                <Link to="home" className="logo" smooth={true} duration={500}>
+                    <span className="logo-text">Aman Bashir</span>
                 </Link>
 
                 <nav className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>

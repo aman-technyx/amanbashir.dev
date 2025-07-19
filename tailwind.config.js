@@ -24,6 +24,27 @@ export default {
                     DEFAULT: "hsl(var(--accent))",
                     foreground: "hsl(var(--accent-foreground))",
                 },
+                // Additional theme colors
+                white: "var(--white)",
+                black: "var(--black)",
+                gray: {
+                    light: "var(--gray-light)",
+                    medium: "var(--gray-medium)",
+                    dark: "var(--gray-dark)",
+                },
+                blue: {
+                    primary: "var(--blue-primary)",
+                    secondary: "var(--blue-secondary)",
+                },
+                purple: {
+                    twitch: "var(--purple-twitch)",
+                },
+                border: {
+                    white: "var(--border-white)",
+                },
+                background: {
+                    light: "var(--background-light)",
+                },
             },
             borderRadius: {
                 lg: "var(--radius)",

@@ -98,51 +98,26 @@ function App() {
   }, [])
 
   return (
-    <div className={`app ${theme === 'dark' ? 'dark' : ''} ${theme}-theme`} style={{ position: 'relative', minHeight: '100vh' }}>
+    <div className={`app ${theme === 'dark' ? 'dark' : ''} ${theme}-theme relative min-h-screen`}>
       <Header />
       <button
         onClick={toggleTheme}
-        style={{
-          position: 'fixed',
-          top: 20,
-          right: 20,
-          zIndex: 10000,
-          padding: '0.5rem 1rem',
-          borderRadius: '1.5rem',
-          border: 'none',
-          background: theme === 'light' ? '#222' : '#fff',
-          color: theme === 'light' ? '#fff' : '#222',
-          cursor: 'pointer',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
-        }}
+        className={`theme-toggle ${theme}`}
         aria-label="Toggle theme"
       >
         {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
       </button>
       {/* Custom Cursor */}
       <div
+        className="custom-cursor"
         style={{
-          position: 'fixed',
           left: cursor.x - 3,
           top: cursor.y - 3,
-          width: 6,
-          height: 6,
-          borderRadius: '50%',
-          border: '3px solid #9147ff', // Twitch purple
-          background: '#fff',
-          boxShadow: '0 2px 8px rgba(145,71,255,0.15)',
-          pointerEvents: 'none',
-          zIndex: 10001,
-          transition: 'background 0.2s, border 0.2s',
-          mixBlendMode: 'exclusion',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
         }}
       >
       </div>
       {/* Fluid Cursor Canvas Overlay */}
-      <canvas id="fluid" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', pointerEvents: 'none', zIndex: 9999 }} />
+      <canvas id="fluid" className="canvas-overlay canvas-fluid" />
       <main>
         <Home theme={theme} />
         <About />
@@ -154,7 +129,7 @@ function App() {
       </main>
       <Footer />
       {CURSOR_LIGHT_EFFECT_ENABLED && (
-        <canvas id="light-canvas" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 3, pointerEvents: 'none' }}></canvas>
+        <canvas id="light-canvas" className="canvas-overlay canvas-light"></canvas>
       )}
     </div>
   )
