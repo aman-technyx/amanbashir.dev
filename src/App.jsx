@@ -7,17 +7,17 @@ import Projects from './pages/Projects'
 import Experience from './pages/Experience'
 import Skills from './pages/Skills'
 import Contact from './pages/Contact'
-import Services from './pages/Services'
-import Testimonials from './pages/Testimonials'
-import Achievements from './pages/Achievements'
 import FeatureProject from './components/FeatureProject'
 import LogoCarousel from './components/LogoCarousel'
 import './styles/main.scss'
 import signature from './assets/signature.jpg'
 import useFluidCursor from './hooks/useFluidCursor'
+import { CURSOR_LIGHT_EFFECT_ENABLED, CURSOR_FLUID_COLOR_ENABLED } from './constants.js'
 
 function App() {
-  useFluidCursor();
+  if (CURSOR_FLUID_COLOR_ENABLED) {
+    useFluidCursor();
+  }
   const [theme, setTheme] = useState('dark')
   const [cursor, setCursor] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 })
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
@@ -34,8 +34,21 @@ function App() {
     })
   }, [])
 
-  // Mouse-following light effect (global)
+  // Always update cursor position
   useEffect(() => {
+    function onMouseMove(e) {
+      setCursor({ x: e.clientX, y: e.clientY })
+    }
+    window.addEventListener('mousemove', onMouseMove)
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove)
+    }
+  }, [])
+
+  // Light effect only if enabled
+  useEffect(() => {
+    if (!CURSOR_LIGHT_EFFECT_ENABLED) return;
+    // Mouse-following light effect (global)
     const lightCanvas = document.getElementById('light-canvas')
     if (!lightCanvas) return
     const ctx = lightCanvas.getContext('2d')
@@ -49,7 +62,6 @@ function App() {
     function onMouseMove(e) {
       mouse.x = e.clientX
       mouse.y = e.clientY
-      setCursor({ x: e.clientX, y: e.clientY }) // update custom cursor
     }
     window.addEventListener('mousemove', onMouseMove)
     let lightFrameId
@@ -60,15 +72,9 @@ function App() {
         mouse.x, mouse.y, 0,
         mouse.x, mouse.y, r
       )
-      if (theme === 'dark') {
-        gradient.addColorStop(0, 'rgba(255,255,255,0.25)')
-        gradient.addColorStop(0.5, 'rgba(255,255,255,0.10)')
-        gradient.addColorStop(1, 'rgba(255,255,255,0)')
-      } else {
-        gradient.addColorStop(0, 'rgba(37,99,235,0.25)') // #2563eb
-        gradient.addColorStop(0.5, 'rgba(37,99,235,0.10)')
-        gradient.addColorStop(1, 'rgba(37,99,235,0)')
-      }
+      gradient.addColorStop(0, 'rgba(255,255,255,0.25)')
+      gradient.addColorStop(0.5, 'rgba(255,255,255,0.10)')
+      gradient.addColorStop(1, 'rgba(255,255,255,0)')
       ctx.globalCompositeOperation = 'lighter'
       ctx.fillStyle = gradient
       ctx.fillRect(mouse.x - r, mouse.y - r, r * 2, r * 2)
@@ -81,7 +87,7 @@ function App() {
       window.removeEventListener('mousemove', onMouseMove)
       cancelAnimationFrame(lightFrameId)
     }
-  }, [theme])
+  }, [])
 
   // Hide default cursor
   useEffect(() => {
@@ -117,10 +123,10 @@ function App() {
       <div
         style={{
           position: 'fixed',
-          left: cursor.x - 16,
-          top: cursor.y - 16,
-          width: 32,
-          height: 32,
+          left: cursor.x - 3,
+          top: cursor.y - 3,
+          width: 6,
+          height: 6,
           borderRadius: '50%',
           border: '3px solid #9147ff', // Twitch purple
           background: '#fff',
@@ -134,20 +140,6 @@ function App() {
           justifyContent: 'center',
         }}
       >
-        <img
-          src={signature}
-          alt="Signature Cursor"
-          style={{
-            width: 18,
-            height: 18,
-            objectFit: 'contain',
-            borderRadius: 4,
-            boxShadow: '0 1px 4px rgba(0,0,0,0.10)',
-            background: theme === 'dark' ? '#fff' : '#181a1b',
-            border: theme === 'dark' ? '1px solid #9147ff' : '1px solid #222',
-            filter: theme === 'dark' ? 'none' : 'invert(1)',
-          }}
-        />
       </div>
       {/* Fluid Cursor Canvas Overlay */}
       <canvas id="fluid" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', pointerEvents: 'none', zIndex: 9999 }} />
@@ -158,13 +150,12 @@ function App() {
         <Experience />
         <Skills />
         <LogoCarousel />
-        <Services />
-        <Testimonials />
-        <Achievements />
         <Contact />
       </main>
       <Footer />
-      <canvas id="light-canvas" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 3, pointerEvents: 'none' }}></canvas>
+      {CURSOR_LIGHT_EFFECT_ENABLED && (
+        <canvas id="light-canvas" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 3, pointerEvents: 'none' }}></canvas>
+      )}
     </div>
   )
 }

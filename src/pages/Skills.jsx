@@ -81,7 +81,7 @@ const Skills = () => {
     }, [])
 
     return (
-        <section id="skills" className="section gray-bg">
+        <section id="skills" className="section">
             <div className="container">
                 <div ref={skillsRef}>
                     <h2 className="section-title">Skills & Expertise</h2>
