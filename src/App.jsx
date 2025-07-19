@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import FeatureProject from './components/FeatureProject'
 import LogoCarousel from './components/LogoCarousel'
 import FloatingParticles from './components/FloatingParticles'
+import Services from './components/Services'
 import './styles/main.scss'
 import signature from './assets/signature.jpg'
 import useFluidCursor from './hooks/useFluidCursor'
@@ -124,6 +125,7 @@ function App() {
       <main>
         <Home theme={theme} />
         <About />
+        <Services />
         <FeatureProject />
         <Experience />
         <Skills />

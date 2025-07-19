@@ -627,6 +627,283 @@ $font-family: 'Special Elite', cursive, sans-serif;
     z-index: -1;
 }
 
+// Services Section
+.services-section {
+    position: relative;
+    padding: 120px 0;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+.services-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(90, 25, 154, 0.02) 0%,
+            rgba(229, 56, 155, 0.02) 50%,
+            rgba(90, 25, 154, 0.02) 100%);
+    z-index: 0;
+}
+
+.services-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(90, 25, 154, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(229, 56, 155, 0.03) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.dark .services-background {
+    background: linear-gradient(135deg,
+            rgba(157, 78, 221, 0.03) 0%,
+            rgba(255, 94, 223, 0.03) 50%,
+            rgba(157, 78, 221, 0.03) 100%);
+}
+
+.dark .services-grid-overlay {
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(157, 78, 221, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 94, 223, 0.05) 0%, transparent 50%);
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.services-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--blue-primary), var(--blue-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.dark .services-title {
+    text-shadow: 0 0 30px rgba(157, 78, 221, 0.5);
+}
+
+.services-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.service-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.service-card-inner {
+    position: relative;
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid var(--border-primary);
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.service-card-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(90, 25, 154, 0.05) 0%,
+            rgba(229, 56, 155, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.dark .service-card-inner::before {
+    background: linear-gradient(135deg,
+            rgba(157, 78, 221, 0.08) 0%,
+            rgba(255, 94, 223, 0.08) 100%);
+}
+
+.service-card:hover .service-card-inner::before {
+    opacity: 1;
+}
+
+.service-card:hover .service-card-inner {
+    border-color: var(--blue-primary);
+    box-shadow:
+        0 20px 40px rgba(90, 25, 154, 0.1),
+        0 0 0 1px rgba(90, 25, 154, 0.1);
+    transform: translateY(-8px);
+}
+
+.dark .service-card:hover .service-card-inner {
+    box-shadow:
+        0 20px 40px rgba(157, 78, 221, 0.2),
+        0 0 0 1px rgba(157, 78, 221, 0.2);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.service-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(20px);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.service-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+
+.service-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.service-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.service-feature {
+    background: var(--bg-tertiary);
+    color: var(--blue-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid var(--border-primary);
+    transition: all 0.3s ease;
+}
+
+.service-feature:hover {
+    background: var(--blue-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(90, 25, 154, 0.3);
+}
+
+.dark .service-feature:hover {
+    box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4);
+}
+
+.service-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(90, 25, 154, 0.1) 50%,
+            transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.dark .service-glow {
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(157, 78, 221, 0.15) 50%,
+            transparent 70%);
+}
+
+.service-card:hover .service-glow {
+    opacity: 1;
+    animation: glow-sweep 2s ease-in-out infinite;
+}
+
+@keyframes glow-sweep {
+
+    0%,
+    100% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(100%);
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .services-title {
+        font-size: 2.5rem;
+    }
+
+    .service-card-inner {
+        padding: 2rem;
+    }
+
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
 // Hero section
 .hero {
     position: relative;
