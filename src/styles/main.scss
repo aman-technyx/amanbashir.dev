@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 // SCSS Variables (move these to the top!)
-$primary-color: #00ff41;
-$secondary-color: #00cc33;
-$text-color: #1f2937;
-$light-text: #6b7280;
-$background-color: #ffffff;
-$section-bg: #f3f4f6;
+$primary-color: #5A189A;
+$secondary-color: #E5389B;
+$text-color: #1B1B1B;
+$light-text: #6A5F85;
+$background-color: #F9F7FF;
+$section-bg: #E2D8F3;
 $font-family: 'Special Elite', cursive, sans-serif;
 
 // Tailwind CSS Directives
@@ -95,23 +95,23 @@ $font-family: 'Special Elite', cursive, sans-serif;
     --background-light: #eeeeee;
 
     /* Text and UI Colors */
-    --text-primary: #1f2937;
-    --text-secondary: #6b7280;
-    --text-muted: #9ca3af;
-    --heading-color: #111827;
-    --paragraph-color: #374151;
+    --text-primary: #1B1B1B;
+    --text-secondary: #6A5F85;
+    --text-muted: #6A5F85;
+    --heading-color: #1B1B1B;
+    --paragraph-color: #1B1B1B;
     --link-color: #{$primary-color};
     --link-hover-color: #{$secondary-color};
 
     /* Background Colors */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f9fafb;
-    --bg-tertiary: #f3f4f6;
+    --bg-primary: #F9F7FF;
+    --bg-secondary: #E2D8F3;
+    --bg-tertiary: #E2D8F3;
     --bg-card: #ffffff;
     --bg-overlay: rgba(0, 0, 0, 0.1);
 
     /* Border Colors */
-    --border-primary: #e5e7eb;
+    --border-primary: #E2D8F3;
     --border-secondary: #d1d5db;
     --border-focus: #{$primary-color};
 
@@ -199,32 +199,32 @@ $font-family: 'Special Elite', cursive, sans-serif;
     --gray-light: #1f2937;
     --gray-medium: #9ca3af;
     --gray-dark: #f9fafb;
-    --blue-primary: #{$primary-color};
-    --blue-secondary: #{$secondary-color};
+    --blue-primary: #9D4EDD;
+    --blue-secondary: #FF5EDF;
     --purple-twitch: #a855f7;
     --border-white: #374151;
     --background-light: #374151;
 
     /* Text and UI Colors (Dark Mode) */
-    --text-primary: #f3f4f6;
-    --text-secondary: #d1d5db;
-    --text-muted: #9ca3af;
-    --heading-color: #ffffff;
-    --paragraph-color: #e5e7eb;
-    --link-color: #{$primary-color};
-    --link-hover-color: #{$secondary-color};
+    --text-primary: #E9E9FF;
+    --text-secondary: #9A9AB8;
+    --text-muted: #9A9AB8;
+    --heading-color: #E9E9FF;
+    --paragraph-color: #E9E9FF;
+    --link-color: #9D4EDD;
+    --link-hover-color: #FF5EDF;
 
     /* Background Colors (Dark Mode) */
-    --bg-primary: #111827;
-    --bg-secondary: #1f2937;
-    --bg-tertiary: #374151;
-    --bg-card: #1f2937;
+    --bg-primary: #0B0B0F;
+    --bg-secondary: #1C1C24;
+    --bg-tertiary: #1C1C24;
+    --bg-card: #1C1C24;
     --bg-overlay: rgba(0, 0, 0, 0.3);
 
     /* Border Colors (Dark Mode) */
-    --border-primary: #374151;
+    --border-primary: #1C1C24;
     --border-secondary: #4b5563;
-    --border-focus: #{$primary-color};
+    --border-focus: #9D4EDD;
 
     /* Shadow Colors (Dark Mode) */
     --shadow-light: rgba(0, 0, 0, 0.25);
@@ -874,6 +874,22 @@ h6 {
     margin-bottom: 1rem;
 }
 
+// Dark mode neon glow for headings
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.app.dark-theme h1,
+.app.dark-theme h2,
+.app.dark-theme h3,
+.app.dark-theme h4,
+.app.dark-theme h5,
+.app.dark-theme h6 {
+    text-shadow: 0 0 8px var(--blue-primary);
+}
+
 // Buttons
 .btn {
     display: inline-block;
@@ -887,19 +903,25 @@ h6 {
     &-primary {
         background-color: var(--blue-primary);
         color: white;
+        transition: all 0.3s ease;
 
         &:hover {
-            background-color: var(--blue-secondary);
+            background: linear-gradient(90deg, var(--blue-primary) 0%, var(--blue-secondary) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(157, 78, 221, 0.3);
         }
     }
 
     &-outline {
         border: 2px solid var(--blue-primary);
         color: var(--blue-primary);
+        transition: all 0.3s ease;
 
         &:hover {
-            background-color: var(--blue-primary);
+            background: linear-gradient(90deg, var(--blue-primary) 0%, var(--blue-secondary) 100%);
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(157, 78, 221, 0.3);
         }
     }
 }

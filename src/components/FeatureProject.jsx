@@ -243,7 +243,7 @@ const FeatureProject = () => {
                     <h2 className="section-title">
                         Featured Projects
                     </h2>
-                    <p className="mx-auto">
+                    <p className="mx-auto text-secondary text-lg max-w-2xl">
                         A showcase of my most impactful projects from 2018-2025.
                     </p>
                 </motion.div>
