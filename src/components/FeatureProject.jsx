@@ -172,7 +172,7 @@ function Gallery({ items, setIndex, index }) {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.1, duration: 0.4 }}
-                                    className='text-lg md:text-2xl font-bold text-white drop-shadow-lg m-0'
+                                    className='text-lg md:text-2xl font-bold project-title drop-shadow-lg m-0'
                                 >
                                     {item?.title}
                                 </motion.h1>
@@ -180,7 +180,7 @@ function Gallery({ items, setIndex, index }) {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2, duration: 0.4 }}
-                                    className='leading-relaxed text-white/90 text-sm drop-shadow m-0'
+                                    className='leading-relaxed project-description text-sm drop-shadow m-0'
                                 >
                                     {item?.description}
                                 </motion.p>

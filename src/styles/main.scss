@@ -103,6 +103,16 @@ $font-family: 'Special Elite', cursive, sans-serif;
     --link-color: #{$primary-color};
     --link-hover-color: #{$secondary-color};
 
+    /* Project Card Colors */
+    --project-title-color: #1B1B1B;
+    --project-description-color: #6A5F85;
+    --project-tag-bg: rgba(90, 25, 154, 0.1);
+    --project-tag-text: #5A189A;
+    --project-tag-border: rgba(90, 25, 154, 0.2);
+    --project-link-bg: rgba(90, 25, 154, 0.1);
+    --project-link-text: #5A189A;
+    --project-link-border: rgba(90, 25, 154, 0.2);
+
     /* Background Colors */
     --bg-primary: #F9F7FF;
     --bg-secondary: #E2D8F3;
@@ -214,6 +224,16 @@ $font-family: 'Special Elite', cursive, sans-serif;
     --link-color: #9D4EDD;
     --link-hover-color: #FF5EDF;
 
+    /* Project Card Colors (Dark Mode) */
+    --project-title-color: #E9E9FF;
+    --project-description-color: #9A9AB8;
+    --project-tag-bg: rgba(157, 78, 221, 0.2);
+    --project-tag-text: #9D4EDD;
+    --project-tag-border: rgba(157, 78, 221, 0.3);
+    --project-link-bg: rgba(157, 78, 221, 0.2);
+    --project-link-text: #9D4EDD;
+    --project-link-border: rgba(157, 78, 221, 0.3);
+
     /* Background Colors (Dark Mode) */
     --bg-primary: #0B0B0F;
     --bg-secondary: #1C1C24;
@@ -309,11 +329,30 @@ $font-family: 'Special Elite', cursive, sans-serif;
     padding: 4px 12px;
     font-size: 12px;
     font-weight: 500;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: var(--project-tag-bg);
     backdrop-filter: blur(4px);
     border-radius: 9999px;
+    color: var(--project-tag-text);
+    border: 1px solid var(--project-tag-border);
+    transition: all 0.3s ease;
+}
+
+.tag-pill:hover {
+    background-color: var(--project-tag-bg);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+/* Light mode specific styling for gradient backgrounds */
+:root .tag-pill {
+    background-color: rgba(255, 255, 255, 0.25);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+:root .tag-pill:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .project-link {
@@ -321,13 +360,13 @@ $font-family: 'Special Elite', cursive, sans-serif;
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--project-link-bg);
     border-radius: 8px;
-    color: white;
+    color: var(--project-link-text);
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--project-link-border);
     backdrop-filter: blur(4px);
     transition: all 0.3s ease;
     align-self: flex-start;
@@ -335,8 +374,30 @@ $font-family: 'Special Elite', cursive, sans-serif;
 }
 
 .project-link:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--project-link-bg);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+/* Light mode specific styling for gradient backgrounds */
+:root .project-link {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+:root .project-link:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Project card text colors */
+.project-title {
+    color: var(--project-title-color) !important;
+}
+
+.project-description {
+    color: var(--project-description-color) !important;
 }
 
 // Theme toggle button
