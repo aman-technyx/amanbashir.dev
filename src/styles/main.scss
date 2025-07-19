@@ -1,3 +1,12 @@
+// SCSS Variables (move these to the top!)
+$primary-color: #00ff41;
+$secondary-color: #00cc33;
+$text-color: #1f2937;
+$light-text: #6b7280;
+$background-color: #ffffff;
+$section-bg: #f3f4f6;
+$font-family: 'Inter', sans-serif;
+
 // Tailwind CSS Directives
 @tailwind base;
 @tailwind components;
@@ -77,8 +86,8 @@
     --gray-light: #f3f4f6;
     --gray-medium: #6b7280;
     --gray-dark: #1f2937;
-    --blue-primary: #2563eb;
-    --blue-secondary: #1e40af;
+    --blue-primary: #{$primary-color};
+    --blue-secondary: #{$secondary-color};
     --purple-twitch: #9147ff;
     --border-white: #ffffff;
     --background-light: #eeeeee;
@@ -162,8 +171,8 @@
     --gray-light: #1f2937;
     --gray-medium: #9ca3af;
     --gray-dark: #f9fafb;
-    --blue-primary: #3b82f6;
-    --blue-secondary: #60a5fa;
+    --blue-primary: #{$primary-color};
+    --blue-secondary: #{$secondary-color};
     --purple-twitch: #a855f7;
     --border-white: #374151;
     --background-light: #374151;
@@ -180,15 +189,6 @@
     --gradient-9: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
     --gradient-10: linear-gradient(135deg, #be185d 0%, #fb7185 100%);
 }
-
-// Variables
-$primary-color: #2563eb;
-$secondary-color: #1e40af;
-$text-color: #1f2937;
-$light-text: #6b7280;
-$background-color: #ffffff;
-$section-bg: #f3f4f6;
-$font-family: 'Inter', sans-serif;
 
 // Gradient utility classes
 .gradient-1 {
@@ -1092,18 +1092,18 @@ h6 {
 }
 
 .app.dark-theme .btn-primary {
-    background: #2563eb;
+    background: var(--blue-primary);
     color: #fff;
 }
 
 .app.dark-theme .btn-outline {
-    border-color: #2563eb;
-    color: #2563eb;
+    border-color: var(--blue-primary);
+    color: var(--blue-primary);
     background: transparent;
 }
 
 .app.dark-theme .btn-outline:hover {
-    background: #2563eb;
+    background: var(--blue-primary);
     color: #fff;
 }
 
@@ -1140,7 +1140,7 @@ h6 {
 }
 
 .app.dark-theme .nav-link:hover {
-    color: #60a5fa;
+    color: var(--blue-secondary);
 }
 
 .app.dark-theme .mobile-menu-btn span {
@@ -1160,7 +1160,7 @@ h6 {
 }
 
 .app.dark-theme .about-stats .stat-item h3 {
-    color: #60a5fa;
+    color: var(--blue-secondary);
 }
 
 .app.dark-theme .about-stats .stat-item p {
@@ -1179,7 +1179,7 @@ h6 {
 
 .app.dark-theme .project-card .tech-tag {
     background-color: #23272a;
-    color: #60a5fa;
+    color: var(--blue-secondary);
 }
 
 .app.dark-theme .experience-item {
@@ -1202,7 +1202,7 @@ h6 {
 }
 
 .app.dark-theme .skill-card .skill-category {
-    color: #60a5fa;
+    color: var(--blue-secondary);
 }
 
 .app.dark-theme .skill-card .skill-item .skill-level {
@@ -1214,7 +1214,7 @@ h6 {
 }
 
 .app.dark-theme .skill-card .skill-progress {
-    background-color: #60a5fa;
+    background-color: var(--blue-secondary);
 }
 
 .app.dark-theme .testimonial-card {
@@ -1255,7 +1255,7 @@ h6 {
 
 .app.dark-theme .contact-form input:focus,
 .app.dark-theme .contact-form textarea:focus {
-    border-color: #60a5fa;
+    border-color: var(--blue-secondary);
 }
 
 .app.dark-theme .contact-item {
@@ -1263,7 +1263,7 @@ h6 {
 }
 
 .app.dark-theme .contact-item .contact-icon {
-    background-color: #60a5fa;
+    background-color: var(--blue-secondary);
     color: #181a1b;
 }
 
@@ -1277,7 +1277,7 @@ h6 {
 }
 
 .app.dark-theme .social-links a:hover {
-    color: #60a5fa;
+    color: var(--blue-secondary);
 }
 
 // Gradient Border Component Styles - REMOVED DUPLICATE
