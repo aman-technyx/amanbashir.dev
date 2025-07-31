@@ -15,6 +15,7 @@ import './styles/main.scss'
 import signature from './assets/signature.jpg'
 import useFluidCursor from './hooks/useFluidCursor'
 import { CURSOR_LIGHT_EFFECT_ENABLED, CURSOR_FLUID_COLOR_ENABLED } from './constants.js'
+import { LanguageProvider } from './contexts/LanguageContext'
 
 function App() {
   if (CURSOR_FLUID_COLOR_ENABLED) {
@@ -100,43 +101,38 @@ function App() {
   }, [])
 
   return (
-    <div className={`app ${theme === 'dark' ? 'dark' : ''} ${theme}-theme relative min-h-screen`}>
-      <Header />
-      <button
-        onClick={toggleTheme}
-        className={`theme-toggle ${theme}`}
-        aria-label="Toggle theme"
-      >
-        {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-      </button>
-      {/* Custom Cursor */}
-      <div
-        className="custom-cursor"
-        style={{
-          left: cursor.x - 3,
-          top: cursor.y - 3,
-        }}
-      >
+    <LanguageProvider>
+      <div className={`app ${theme === 'dark' ? 'dark' : ''} ${theme}-theme relative min-h-screen`}>
+        <Header theme={theme} toggleTheme={toggleTheme} />
+        {/* Custom Cursor */}
+        <div
+          className="custom-cursor"
+          style={{
+            left: cursor.x - 3,
+            top: cursor.y - 3,
+          }}
+        >
+        </div>
+        {/* Fluid Cursor Canvas Overlay */}
+        <canvas id="fluid" className="canvas-overlay canvas-fluid" />
+        {/* Floating Particles Background */}
+        <FloatingParticles />
+        <main>
+          <Home theme={theme} />
+          <About />
+          <Services />
+          <FeatureProject />
+          <Experience />
+          <Skills />
+          <LogoCarousel />
+          <Contact />
+        </main>
+        <Footer />
+        {CURSOR_LIGHT_EFFECT_ENABLED && (
+          <canvas id="light-canvas" className="canvas-overlay canvas-light"></canvas>
+        )}
       </div>
-      {/* Fluid Cursor Canvas Overlay */}
-      <canvas id="fluid" className="canvas-overlay canvas-fluid" />
-      {/* Floating Particles Background */}
-      <FloatingParticles />
-      <main>
-        <Home theme={theme} />
-        <About />
-        <Services />
-        <FeatureProject />
-        <Experience />
-        <Skills />
-        <LogoCarousel />
-        <Contact />
-      </main>
-      <Footer />
-      {CURSOR_LIGHT_EFFECT_ENABLED && (
-        <canvas id="light-canvas" className="canvas-overlay canvas-light"></canvas>
-      )}
-    </div>
+    </LanguageProvider>
   )
 }
 

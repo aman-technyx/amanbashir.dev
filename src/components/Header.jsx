@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-scroll'
 import signature from '../assets/signature.jpg'
+import { useLanguage } from '../contexts/LanguageContext'
 
-const Header = () => {
+const Header = ({ theme, toggleTheme }) => {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const { language, toggleLanguage } = useLanguage()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -45,16 +47,46 @@ const Header = () => {
                             {link.label}
                         </Link>
                     ))}
+                    <button
+                        onClick={toggleLanguage}
+                        className="theme-toggle theme-toggle-mobile language-toggle"
+                        aria-label="Toggle language"
+                    >
+                        {language === 'en' ? '🇩🇪 DE' : '🇬🇧 EN'}
+                    </button>
+                    <button
+                        onClick={toggleTheme}
+                        className={`theme-toggle theme-toggle-mobile ${theme}`}
+                        aria-label="Toggle theme"
+                    >
+                        {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+                    </button>
                 </nav>
 
-                <button
-                    className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <div className="header-actions">
+                    <button
+                        onClick={toggleLanguage}
+                        className="theme-toggle theme-toggle-desktop language-toggle"
+                        aria-label="Toggle language"
+                    >
+                        {language === 'en' ? '🇩🇪 DE' : '🇬🇧 EN'}
+                    </button>
+                    <button
+                        onClick={toggleTheme}
+                        className={`theme-toggle theme-toggle-desktop ${theme}`}
+                        aria-label="Toggle theme"
+                    >
+                        {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+                    </button>
+                    <button
+                        className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </header>
     )
