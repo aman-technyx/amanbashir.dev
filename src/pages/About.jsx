@@ -35,7 +35,7 @@ const About = () => {
                     <div className="about-content">
                         <div className="about-text">
                             <p>
-                                Experienced Software Engineer based in Karachi, Pakistan, with 4+ years of expertise in building scalable web and mobile applications. I specialize in full-stack development using TypeScript, React, Node.js, .NET, and Java, and have a strong command over cloud platforms like AWS and Azure.
+                                Experienced Software Engineer based in Karachi, Pakistan, with 5+ years of expertise in building scalable web and mobile applications. I specialize in full-stack development using TypeScript, React, Node.js, .NET, and Java, and have a strong command over cloud platforms like AWS and Azure.
                             </p>
                             <p>
                                 I am known for writing clean, maintainable code, solving complex problems, and delivering production-ready solutions. My experience spans frontend and backend development, cloud infrastructure, and DevOps practices. I thrive in Agile/Scrum environments and enjoy collaborating with cross-functional teams.

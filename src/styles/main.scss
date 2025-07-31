@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 // SCSS Variables (move these to the top!)
 $primary-color: #5A189A;
@@ -7,7 +7,7 @@ $text-color: #1B1B1B;
 $light-text: #6A5F85;
 $background-color: #F9F7FF;
 $section-bg: #E2D8F3;
-$font-family: 'Special Elite', cursive, sans-serif;
+$font-family: 'Space Grotesk', sans-serif;
 
 // Tailwind CSS Directives
 @tailwind base;
@@ -409,6 +409,7 @@ $font-family: 'Special Elite', cursive, sans-serif;
     cursor: pointer;
     font-weight: 500;
     font-size: 0.9rem;
+    letter-spacing: 0.02em;
     backdrop-filter: blur(8px);
     transition: all 0.3s ease;
     display: flex;
@@ -426,6 +427,7 @@ $font-family: 'Special Elite', cursive, sans-serif;
         background: rgba(var(--blue-primary-rgb), 0.1);
         border-color: rgba(var(--blue-primary-rgb), 0.2);
         color: var(--text-primary);
+        font-weight: 500;
 
         &:hover {
             background: rgba(var(--blue-primary-rgb), 0.15);
@@ -1147,8 +1149,7 @@ $font-family: 'Special Elite', cursive, sans-serif;
 .logo-text {
     font-weight: 700;
     font-size: 1.5rem;
-    color: inherit;
-    letter-spacing: 1px;
+    letter-spacing: -0.01em;
 }
 
 // Reset and base styles
@@ -1166,6 +1167,8 @@ body {
     font-family: $font-family;
     color: var(--text-primary);
     line-height: 1.6;
+    font-weight: 400;
+    letter-spacing: 0.01em;
 }
 
 // Container
@@ -1217,6 +1220,7 @@ body {
             font-weight: 500;
             cursor: pointer;
             transition: color 0.3s ease;
+            letter-spacing: 0.01em;
 
             &:hover {
                 color: var(--link-hover-color);
@@ -1275,12 +1279,14 @@ body {
 
     .hero-title {
         font-size: 4rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.1;
+        font-weight: 700;
+        letter-spacing: -0.03em;
     }
 
     .hero-subtitle {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        font-weight: 400;
+        letter-spacing: 0;
         color: var(--text-secondary);
         margin-bottom: 2rem;
         max-width: 600px;
@@ -1579,6 +1585,19 @@ h6 {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 // Dark mode neon glow for headings
@@ -1602,7 +1621,8 @@ h6 {
     display: inline-block;
     padding: 0.75rem 1.5rem;
     border-radius: 0.375rem;
-    font-weight: 600;
+    font-weight: 500;
+    letter-spacing: 0.02em;
     text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
